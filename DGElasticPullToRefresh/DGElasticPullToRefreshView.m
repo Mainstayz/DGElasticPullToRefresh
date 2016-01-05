@@ -354,8 +354,7 @@ static NSString* keyPathForPanGestureRecognizerState = @"panGestureRecognizer.st
         CGFloat contentInsetTop = self.originalContentInsetTop;
         self.bounceAnimationHelperView.center = CGPointMake(0, contentInsetTop + self.loadingContentInset);
 
-    }
-                     completion:nil];
+    }completion:nil];
 }
 #pragma mark - CADisplayLink
 
@@ -475,8 +474,9 @@ static NSString* keyPathForPanGestureRecognizerState = @"panGestureRecognizer.st
         }
     }
     else if (state == DGElasticPullToRefreshStateAnimatingToStopped) {
-        [self resetScrollViewContentInset:YES animated:YES completion:^{
-            self.state = DGElasticPullToRefreshStateStoped;
+        __weak typeof (self)wself = self;
+        [wself resetScrollViewContentInset:YES animated:YES completion:^{
+            wself.state = DGElasticPullToRefreshStateStoped;
         }];
     }
     else if (state == DGElasticPullToRefreshStateStoped) {
