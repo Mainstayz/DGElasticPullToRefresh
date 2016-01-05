@@ -24,7 +24,8 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:57 / 255.0 green:67 / 255.0 blue:89 / 255.0 alpha:1];
 
-    //  Don't forget the fllow code!
+#warning what reason is this？
+    //  Don't forget the fllow code!  bug？
     self.extendedLayoutIncludesOpaqueBars = YES;
 
     UITableView* tabelView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -43,7 +44,8 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.tableView dg_stopLoading];
         });
-    }loadingView:loadingView];
+    }
+                                        loadingView:loadingView];
 
     [tabelView dg_setPullToRefreshFillColor:[UIColor colorWithRed:57 / 255.0 green:67 / 255.0 blue:89 / 255.0 alpha:1]];
 
