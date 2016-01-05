@@ -24,8 +24,34 @@
  
  */
 
-#import "DGElasticPullToRefreshLoadingView.h"
+#import <UIKit/UIKit.h>
 
-@interface DGElasticPullToRefreshLoadingViewCircle : DGElasticPullToRefreshLoadingView
+@interface NSObject (DGElasticExtension)
+
+@property (nonatomic, strong) NSMutableArray* dg_observers;
+
+- (void)dg_addObserver:(NSObject*)observer forKeyPath:(NSString*)keyPath;
+- (void)dg_removeObserver:(NSObject*)observer forKeyPath:(NSString*)keyPath;
+
+@end
+
+@interface UIView (DGElasticExtension)
+
+@property (nonatomic) CGFloat centerX;
+@property (nonatomic) CGFloat centerY;
+
+- (CGPoint)dg_center:(BOOL)usePresentationLayerIfPossible;
+
+@end
+
+@interface UIScrollView (DGElasticExtension)
+
+@property (nonatomic) CGFloat contentInsetTop;
+@property (nonatomic) CGFloat contentInsetLeft;
+@property (nonatomic) CGFloat contentInsetBottom;
+@property (nonatomic) CGFloat contentInsetRight;
+
+@property (nonatomic) CGFloat contentOffsetX;
+@property (nonatomic) CGFloat contentOffsetY;
 
 @end

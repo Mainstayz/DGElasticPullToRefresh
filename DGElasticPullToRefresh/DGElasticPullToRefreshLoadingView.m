@@ -1,50 +1,54 @@
-//
-//  DGElasticPullToRefreshLoadingView.m
-//  TSPullToRefresh
-//
-//  Created by 何宗柱 on 15/12/31.
-//  Copyright © 2015年 TuShu72. All rights reserved.
-//
+/*
+
+ The MIT License (MIT)
+
+ Copyright (c) 2016 Mainstayz
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+ */
 
 #import "DGElasticPullToRefreshLoadingView.h"
 
 @implementation DGElasticPullToRefreshLoadingView
-- (CAShapeLayer *)maskLayer{
+- (CAShapeLayer*)maskLayer
+{
     if (_maskLayer == nil) {
         _maskLayer = [[CAShapeLayer alloc] init];
         _maskLayer.backgroundColor = [UIColor clearColor].CGColor;
         _maskLayer.fillColor = [UIColor blackColor].CGColor;
-        _maskLayer.actions = @{@"path":[NSNull null],
-                               @"position":[NSNull null],
-                               @"bounds":[NSNull null]
-                               };
+        _maskLayer.actions = @{
+            @"path" : [NSNull null],
+            @"position" : [NSNull null],
+            @"bounds" : [NSNull null]
+        };
         self.layer.mask = _maskLayer;
     }
     return _maskLayer;
 }
-- (instancetype)init{
-    if (self = [super initWithFrame:CGRectZero]) {
-        
-    }
-    return self;
+- (void)setPullProgress:(CGFloat)progress
+{
 }
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:CGRectZero]) {
-        
-    }
-    return self;
+- (void)startAnimating
+{
 }
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    NSAssert(NO, @"init(coder:) has not been implemented");
-    return nil;
-}
-- (void)setPullProgress:(CGFloat)progress{
-    
-}
-- (void)startAnimating{
-    
-}
-- (void)stopLoading{
-    
+- (void)stopLoading
+{
 }
 @end
